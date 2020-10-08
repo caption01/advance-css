@@ -42,3 +42,39 @@ background-image: linear-gradient(to right bottom, #7ed56fb7, #28b485c5),
   left: 50%;
   transform: translate(-50%, -50%);
 ```
+
+#### 3. Build animation with "@keyframe"
+
+```
+.heading-primary-main {
+  display: block;
+  font-size: 60px;
+  font-weight: 400;
+  letter-spacing: 35px;
+
+  animation-name: moveInLeft;
+  animation-duration: 1.5s;
+  animation-timing-function: ease-out;
+
+  <!-- shothand version -->
+  <!-- animation: moveInRight 1.5s ease-out; -->
+
+}
+
+@keyframes moveInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+
+  80% {
+    opacity: 0.8;
+    transform: translateX(10px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+```
