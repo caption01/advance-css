@@ -32,16 +32,29 @@ $color-text-light: #eee;
 
 $width-button: 150px;
 
+@mixin clearfix {
+   &::after {
+    content: '';
+    clear: both;
+    display: table;
+  }
+}
+
+@mixin style-link-text($col) {
+  text-decoration: none;
+  text-transform: uppercase;
+  color: $col;
+}
+
+@function divided($a, $b) {
+  @return $a / $b
+}
 
 nav {
   margin: 30px;
   background-color: $color-pri;
 
-    &::after {
-    content: '';
-    clear: both;
-    display: table;
-  }
+  @include clearfix;
 }
 
 .navigation {
@@ -57,9 +70,7 @@ nav {
     }
 
     a:link {
-      text-decoration: none;
-      text-transform: uppercase;
-      color: $color-text-dark;
+      @include style-link-text($color-text-dark);
     }
   }
 }
@@ -68,20 +79,20 @@ nav {
   float: right;
 }
 
-.btn-main:link, .btn-hot:link {
+%btn-placeholder {
   padding: 10px;
   display: inline-block;
   text-align: center;
   border-radius: 100px;
-  text-decoration: none;
-  text-transform: uppercase;
   width: $width-button;
-  color: $color-text-light;
+
+  @include style-link-text($color-text-light);
 }
 
 .btn-main {
   &:link {
-     background-color: $color-sec;
+    @extends %btn-placeholder;
+    background-color: $color-sec;
   }
 
   &:hover {
@@ -91,7 +102,8 @@ nav {
 
 .btn-hot {
   &:link {
-     background-color: $color-tert;
+    @extends %btn-placeholder;
+    background-color: $color-tert;
   }
 
   &:hover {
@@ -99,3 +111,17 @@ nav {
   }
 }
 ```
+
+#### Power Feature Scss
+
+- Variable.
+
+  using @<`varaable-name`> to declare variable.
+
+- @Mixin and @include.
+
+  to build like function that can take args to modify properties.
+
+- %<`btn-placeholder`> to declare.
+
+  sing for create style-pattern and @extends it to element that using (follow DRY. rule).
