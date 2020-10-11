@@ -1,0 +1,17 @@
+/* reset behavior */
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  /* root font-size using base default form browser for user able to zoom in / out */
+  font-size: 62.5%;
+}
+
+body {
+  box-sizing: border-box;
+}
