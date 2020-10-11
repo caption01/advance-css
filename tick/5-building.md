@@ -194,3 +194,67 @@ clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
   }
 
 ```
+
+#### 8. Create circle around content with "figure"
+
+- figure and figcaption using for create element.
+
+```
+HTML:tag
+
+<figure class="story__shape">
+  <img src="img/nat-9.jpg" alt="tour" class="story__img">
+  <figcaption class="story__caption">JACK WILSON</figcaption>
+</figure>
+
+CSS:
+
+&__shape {
+  width: 15rem;
+  height: 15rem;
+  background-color: orange;
+  float: left;
+  position: relative;
+
+  <!-- to defined content around this el. shape props must using with float -->
+  shape-outside: circle(50% at 50% 50%);
+  -webkit-shape-outside: circle(50% at 50% 50%);
+
+  <!-- to defined el. looklike -->
+  clip-path: circle(50% at 50% 50%);
+  -webkit-clip-path: circle(50% at 50% 50%);
+
+  transform: translateX(-3rem) skewX(12deg);
+}
+
+&__img {
+  height: 100%;
+  transform: translateX(-4rem) scale(1.2);
+  backface-visibility: hidden;
+  transition: all 0.5s;
+}
+
+&__caption {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, 20%);
+  color: $color-white;
+  text-transform: uppercase;
+  font-size: 1.7rem;
+  text-align: center;
+  opacity: 0;
+  transition: all 0.5s;
+  backface-visibility: hidden;
+}
+
+&:hover &__caption {
+  opacity: 1;
+  transform: translate(-50%, -50%);
+}
+
+&:hover &__img {
+  transform: translateX(-4rem) scale(1);
+  filter: blur(3px) brightness(80%);
+}
+```
