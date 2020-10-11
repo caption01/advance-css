@@ -65,7 +65,7 @@ background-image: linear-gradient(
 }
 ```
 
-### 4. polygon shape with "transform skey()"
+#### 4. polygon shape with "transform skey()"
 
 ```
 .section-feature {
@@ -87,6 +87,62 @@ background-image: linear-gradient(
 
   <!-- exiting way -->
   // clip-path: polygon();
+}
+
+```
+
+#### 5. card 2 side with "rotateY"
+
+- perspective : handle effect error;
+- backface-visibility: to hide back side of element (think is front/back side he hide back side to render)
+- set back side initial rotateY at 180deg.
+
+```
+.card {
+  perspective: 150rem;
+  -moz-perspective: 150rem;
+  height: 50rem;
+  position: relative;
+
+  &__side {
+    color: white;
+    font-size: 2rem;
+    height: 50rem;
+    transition: all 1s ease;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+
+    // handle back part element
+    backface-visibility: hidden;
+
+    &--front {
+      background-color: $color-white;
+    }
+
+    &--back {
+      transform: rotateY(180deg);
+      border-radius: 3px;
+      box-shadow: 0 1.5rem 4rem rgba($color-black, 0.15);
+
+      &-1 {
+        background-image: linear-gradient(
+          to right bottom,
+          $color-secondary-light,
+          $color-secondary-dark
+        );
+      }
+    }
+  }
+
+  &:hover &__side--front {
+    transform: rotateY(180deg);
+  }
+
+  &:hover &__side--back {
+    transform: rotateY(0);
+  }
 }
 
 ```
