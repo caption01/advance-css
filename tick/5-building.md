@@ -64,3 +64,29 @@ background-image: linear-gradient(
   }
 }
 ```
+
+### 4. polygon shape with "transform skey()"
+
+```
+.section-feature {
+  padding: 20rem 0;
+  background-image: linear-gradient(
+      to right bottom,
+      rgba($color-primary-light, 0.8),
+      rgba($color-primary-dark, 0.8)
+    ),
+    url("../img/nat-4.jpg");
+  background-size: cover;
+  transform: skewY(-7deg);
+  margin-top: -10rem;
+
+  <!-- select direct child -->
+  & > * {
+    transform: skewY(7deg);
+  }
+
+  <!-- exiting way -->
+  // clip-path: polygon();
+}
+
+```
