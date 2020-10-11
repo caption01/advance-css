@@ -146,3 +146,51 @@ background-image: linear-gradient(
 }
 
 ```
+
+#### 6. front-card picture filter with "backgrund-blend-mode"
+
+```
+background-size: cover;
+height: 23rem;
+
+<!-- decorate color over on image -->
+background-blend-mode: screen;
+clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+-webkit-clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%); }
+
+.card__picture--1 {
+  <!-- set color on image -->
+  background-image: linear-gradient(to right bottom, #ffb900, #ff7730), url(../img/nat-5.jpg);
+}
+```
+
+#### 7. front-card clone element props with "box-decoration-break: clone"
+
+```
+ &__heading {
+    font-size: 2.8rem;
+    font-weight: 300;
+    text-transform: uppercase;
+    color: $color-white;
+    position: absolute;
+    text-align: right;
+    top: 12rem;
+    right: 2rem;
+    width: 75%;
+
+    &-span {
+      padding: 1rem 1.5rem;
+      box-decoration-break: clone;
+      -webkit-box-decoration-break: clone;
+
+      &--1 {
+        background-image: linear-gradient(
+          to right bottom,
+          rgba($color-secondary-light, 0.85),
+          rgba($color-secondary-dark, 0.85)
+        );
+      }
+    }
+  }
+
+```
