@@ -270,3 +270,16 @@ CSS:
     ),
     url(../img/nat-10.jpg);
 ```
+
+#### 10. label slice down
+
+- using json siblink selector (+ is menat after input el.) to help css select label element
+
+```
+&__input:placeholder-shown + &__label {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-4rem);
+  }
+
+```
