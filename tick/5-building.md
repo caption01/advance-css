@@ -258,3 +258,15 @@ CSS:
   filter: blur(3px) brightness(80%);
 }
 ```
+
+#### 9. Bg-Linear tick for build poly shape
+
+```
+ background-image: linear-gradient(
+      105deg, //control gradient deg.
+      rgba($color-white, 0.9) 0%, // we can set multi color shade  (color) (position),
+      rgba($color-white, 0.9) 50%,
+      transparent 50%
+    ),
+    url(../img/nat-10.jpg);
+```
