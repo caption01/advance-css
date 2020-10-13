@@ -373,3 +373,61 @@ CSS:
     }
   }
 ```
+
+#### 13. humberger nav-button with "::befre & ::after"
+
+```
+&__icon {
+    position: relative;
+    margin-top: 3.5rem;
+
+    &,
+    &::before,
+    &::after {
+      width: 3rem;
+      height: 2px;
+      background-color: $color-grey-dark-3;
+      display: inline-block;
+    }
+
+    <!-- if we move "content" into upper block we cant using text-aline props watch lec. 51 on start clip-->
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      transition: all 0.2s;
+    }
+
+    &::before {
+      top: -0.8rem;
+    }
+
+    &::after {
+      top: 0.8rem;
+    }
+  }
+
+  &__button:hover &__icon::before {
+    top: -1rem;
+  }
+
+  &__button:hover &__icon::after {
+    top: 1rem;
+  }
+
+  &__checkbox:checked + &__button &__icon {
+    background-color: transparent;
+  }
+
+  &__checkbox:checked + &__button &__icon::before {
+    top: 0;
+    transform: rotate(135deg);
+  }
+
+  &__checkbox:checked + &__button &__icon::after {
+    top: 0;
+    transform: rotate(-135deg);
+  }
+
+```
