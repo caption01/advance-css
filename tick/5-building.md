@@ -485,3 +485,26 @@ CSS:
     hyphens: auto;
   }
 ```
+
+#### 16. only one transform
+
+- becareful multi transform in element ! (if u have u must over write props)
+
+```
+ @include absCenter;
+
+    background-color: $color-white;
+    z-index: 4000;
+    width: 75%;
+    box-shadow: 0 2rem 4rem rgba($color: $color-black, $alpha: 0.2);
+
+    border-radius: 3px;
+
+    display: table;
+    overflow: hidden;
+    opacity: 0;
+
+    // to over write mixins absCenter trasnform
+    transform: translate(-50%, -50%) scale(0.25);
+    transition: all 0.4s 0.2s;
+```
