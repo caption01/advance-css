@@ -431,3 +431,57 @@ CSS:
   }
 
 ```
+
+#### 14. managing content layout with "display table"
+
+- display table to parent
+- displat table-cell to children (to auto manage height and some aligement)
+
+```
+&__content {
+    @include absCenter;
+
+    background-color: $color-white;
+    z-index: 4000;
+    width: 75%;
+    box-shadow: 0 2rem 4rem rgba($color: $color-black, $alpha: 0.2);
+
+    border-radius: 3px;
+
+    display: table;
+    overflow: hidden;
+  }
+
+  &__left {
+    width: 33.33333%;
+    display: table-cell;
+  }
+
+  &__right {
+    width: 66.66667%;
+    display: table-cell;
+    vertical-align: middle;
+    padding: 3rem 5rem;
+  }
+
+  &__img {
+    display: block;
+    width: 100%;
+  }
+
+```
+
+#### 15. paragraph handle with "css: colums"
+
+```
+&__text {
+    font-size: 1.4rem;
+    margin-bottom: 4rem;
+
+    column-count: 2;
+    column-gap: 4rem; //1rem === 14px (current parent fontsize)
+    column-rule: 1px solid $color-grey-light-2;
+
+    hyphens: auto;
+  }
+```
