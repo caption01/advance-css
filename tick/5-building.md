@@ -283,3 +283,93 @@ CSS:
   }
 
 ```
+
+#### 11. navigation button tick with "checkout & label"
+
+```
+&__checkbox {
+    display: none;
+  }
+
+  &__button {
+    background-color: $color-white;
+    height: 7rem;
+    width: 7rem;
+    position: fixed;
+    top: 6rem;
+    right: 6rem;
+    border-radius: 50%;
+    z-index: 2000;
+  }
+
+  &__background {
+    height: 6rem;
+    width: 6rem;
+    border-radius: 50%;
+    position: fixed;
+    top: 6.5rem;
+    right: 6.5rem;
+
+    <!-- radius gradient -->
+    background-image: radial-gradient(
+      $color-primary-light,
+      $color-primary-dark
+    );
+    z-index: 1000;
+
+    transform: scale(50);
+  }
+
+  &__nav {
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 1500;
+  }
+```
+
+#### 12. item animation slice with "bg-size & bg-position"
+
+```
+&__link {
+    &:link,
+    &:visited {
+
+      <!-- display must be inline block to animate translateX -->
+      display: inline-block;
+
+      font-size: 3rem;
+      font-weight: 300;
+      opacity: 0.8;
+      padding: 1rem 2rem;
+      color: $color-white;
+      text-decoration: none;
+      text-transform: uppercase;
+      background-image: linear-gradient(
+        120deg,
+        transparent 0%,
+        transparent 50%,
+        $color-white 50%
+      );
+
+      <!-- to shift color white hidden to right side -->
+      background-size: 220%;
+      transition: all 0.4s;
+
+      span {
+        margin-right: 1.5rem;
+        display: inline-block;
+      }
+    }
+
+    &:hover,
+    &:active {
+      <!-- moving back white side by moving position -->
+      background-position: 100%;
+      color: $color-primary;
+      transform: translateX(1rem);
+    }
+  }
+```
